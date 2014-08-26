@@ -22,4 +22,4 @@ Installation:
    you probaply just need to change the UUID Number.<br>
 4: Load the A-300 Bitwig.mid file in your A-300 Editor and transmit it to the hardware device. Then select
    the controller map on the A-300.<br>
-5: Start Bitwig and enjoy..<br>
+5: Start Bitwig, add the controler under preferences/controller (you can just let Bitwig search for it) and enjoy..<br>
