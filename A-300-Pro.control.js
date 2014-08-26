@@ -16,10 +16,8 @@ var ccValue = initArray(0, ((HIGHEST_CC - LOWEST_CC + 1)*16));
 var ccValueOld = initArray(0, ((HIGHEST_CC - LOWEST_CC + 1)*16));
 
 
-/*Check out if yourController Map sends the same MIDI CCs like they are defined in these variables
- to check this, uncomment  printMidi(status, data1, data2); in function midiOn at the bottom
- then open the console and move the controllers to see if the MIDI CC match. If not change them here,
- according to your MIDI CCs.*/
+/*Load the A-300 Bitwig.mid file in your A-300 Editor and transmit it to the Hardware device. Then select
+the controller Map.*/
 
 var _stop     = 25;
 var _play     = 26;
@@ -27,15 +25,15 @@ var _record   = 28;
 var _loop     = 27;
 var _up       = 23;
 var _down     = 22;
-var _knob1    = 74;
-var _knob2    = 71;
-var _knob3    = 65;
-var _knob4    = 2;
-var _knob5    = 5;
-var _knob6    = 76;
-var _knob7    = 77;
-var _knob8    = 78;
-var _mastervolume = 7;
+var _knob1    = 102;
+var _knob2    = 103;
+var _knob3    = 104;
+var _knob4    = 105;
+var _knob5    = 106;
+var _knob6    = 107;
+var _knob7    = 108;
+var _knob8    = 109;
+var _mastervolume = 118;
 
 
 
@@ -163,7 +161,7 @@ function exit()
 function onMidi(status, data1, data2)
 {
 
-    //printMidi(status, data1, data2);
+   // printMidi(status, data1, data2);
 
     if (isChannelController(status))
     {
