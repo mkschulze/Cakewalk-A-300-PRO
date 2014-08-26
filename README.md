@@ -20,6 +20,6 @@ Installation:
 2: Open it in an Editor like Notepad. Do not use word.<br>
 3: Follow these steps here: http://www.kvraudio.com/forum/viewtopic.php?p=5693803#p5693803<br>
    you probaply just need to change the UUID Number.<br>
-4: Load the <a href="http://filehorst.de/d/belwfazG">A-300 Bitwig.mid</a> file in your A-300 Editor and transmit it to the hardware device. Then select
+4: Load the A-300 Bitwig.mid file in your A-300 Editor and transmit it to the hardware device. Then select
    the controller map on the A-300.<br>
 5: Start Bitwig and enjoy..<br>
