@@ -20,7 +20,7 @@ Installation:
 2: Open it in an Editor like Notepad. Do not use word.<br>
 3: Follow these steps here: http://www.kvraudio.com/forum/viewtopic.php?p=5693803#p5693803<br>
    you probaply just need to change the UUID Number.<br>
-4: Check out if yourController Map sends the same MIDI CCs like they are defined in the variables in Line 24-38.<br>
+4: Check out if your Controller Map sends the same MIDI CCs like they are defined in the variables in Line 24-38.<br>
    To check this, uncomment  printMidi(status, data1, data2); in function midiOn at the bottom<br>
    then open the console and move the controllers to see if the MIDI CC match. If not change them in the script,
    according to your MIDI CCs.<br>
