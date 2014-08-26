@@ -15,9 +15,10 @@ Features:
 ==================
 Installation:
 
-1: Copy the file C:\Users\your name\Documents\Bitwig Studio on win.<br>
+1: Copy the file C:\Users\Your Name\Documents\Bitwig Studio on Win.<br>
+   Mac and Linux: ~/Bitwig Studio/Controller Scripts/ <br>
 2: Open it in an Editor like Notepad. Do not use word.<br>
-3: follow these steps here: http://www.kvraudio.com/forum/viewtopic.php?p=5693803#p5693803<br>
+3: Follow these steps here: http://www.kvraudio.com/forum/viewtopic.php?p=5693803#p5693803<br>
    you probaply just need to change the UUID Number.<br>
 4: Check out if yourController Map sends the same MIDI CCs like they are defined in the variables in Line 24-38.<br>
    To check this, uncomment  printMidi(status, data1, data2); in function midiOn at the bottom<br>
