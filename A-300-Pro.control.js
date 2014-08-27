@@ -17,14 +17,17 @@ var ccValueOld = initArray(0, ((HIGHEST_CC - LOWEST_CC + 1)*16));
 
 
 /*Load the A-300 Bitwig.mid file in your A-300 Editor and transmit it to the Hardware device. Then select
-the controller Map.*/
+ the controller Map.*/
 
+var _down     = 22;
+var _up       = 23;
 var _stop     = 25;
 var _play     = 26;
-var _record   = 28;
 var _loop     = 27;
-var _up       = 23;
-var _down     = 22;
+var _record   = 28;
+var _b1       = 29;
+
+
 var _knob1    = 102;
 var _knob2    = 103;
 var _knob3    = 104;
@@ -53,12 +56,10 @@ function init()
     cursorTrack = host.createCursorTrack(0,0);
     primaryDevice = cursorTrack.getPrimaryDevice();
     masterTrack = host.createMasterTrack(0);
-    masterTrack.getVolume().setIndication(true);
+    application   = host.createApplication();
 
-    for ( var i = 0; i < 8; i++)
-    {
-        var p = primaryDevice.getMacro(i).getAmount();
-        p.setIndication(true);
+    for (var i = 0; i < 8; i++) {
+        primaryDevice.getMacro(i).getAmount().setIndication(true);
     }
 
     // Create 16 NoteInputs + Omni.
@@ -161,7 +162,7 @@ function exit()
 function onMidi(status, data1, data2)
 {
 
-   // printMidi(status, data1, data2);
+    //printMidi(status, data1, data2);
 
     if (isChannelController(status))
     {
@@ -190,6 +191,10 @@ function onMidi(status, data1, data2)
                 break;
             case _mastervolume:
                 masterTrack.getVolume().set(data2, 128);
+                masterTrack.getVolume().setIndication(true);
+                break;
+            case _b1:
+                application.nextPerspective();
                 break;
 
             case _knob1:
