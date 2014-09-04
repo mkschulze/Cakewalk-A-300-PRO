@@ -26,7 +26,8 @@ var _play     = 26;
 var _loop     = 27;
 var _record   = 28;
 var _b1       = 29;
-
+var _b2       = 30;
+var _b4       = 4;
 
 var _knob1    = 102;
 var _knob2    = 103;
@@ -162,7 +163,7 @@ function exit()
 function onMidi(status, data1, data2)
 {
 
-    //printMidi(status, data1, data2);
+    printMidi(status, data1, data2);
 
     if (isChannelController(status))
     {
@@ -195,6 +196,12 @@ function onMidi(status, data1, data2)
                 break;
             case _b1:
                 application.nextPerspective();
+                break;
+            case _b2:
+                application.previousPerspective();
+                break;
+            case _b4:
+                cursorTrack.returnToArrangement();
                 break;
 
             case _knob1:
