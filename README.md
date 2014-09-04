@@ -12,6 +12,7 @@ Features:
 4: Slider 9 linkted to master volume<br>
 5: Rotary knobs linked to primary device macros<br>
 6: Switch between Arranger and Clipview with B1 button. <br>
+7: Return to Arrangement from Clip with B4 button.<br>
 
 ==================
 Installation:
