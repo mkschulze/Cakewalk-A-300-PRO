@@ -11,6 +11,7 @@ Features:
 3: Track selection with fwd/rwd buttons<br>
 4: Slider 9 linkted to master volume<br>
 5: Rotary knobs linked to primary device macros<br>
+6: Switch between Arranger and Clipview with B1 button. <br>
 
 ==================
 Installation:
