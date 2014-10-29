@@ -11,7 +11,7 @@ Features:
 3: Track selection with fwd/rwd buttons<br>
 4: Slider 9 linked to master volume<br>
 5: Rotary knobs linked to primary device macros<br>
-6: Change editor panels with B1-B4. <br>
+6: Change the editor panels with B1-B4. <br>
 7: Return to Arrangement from Clip with Fast Forward button.<br>
 
 ==================
