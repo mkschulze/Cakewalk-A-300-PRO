@@ -9,7 +9,7 @@ Features:
 1: Transport Control <br>
 2: Loops cycle on/off<br>
 3: Track selection with fwd/rwd buttons<br>
-4: Slider 9 linkted to master volume<br>
+4: Slider 9 linked to master volume<br>
 5: Rotary knobs linked to primary device macros<br>
 6: Change perspectives with B1-B4. <br>
 7: Return to Arrangement from Clip with Fast Forward button.<br>
