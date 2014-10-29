@@ -1,11 +1,12 @@
 /**
- * Created by Suloo on 26.08.2014.
+ * Created by Suloo on 29.10.2014.
  */
 loadAPI(1);
 
-host.defineController("Cakewalk", "A-300 PRO", "1.0", "e504e660-2b27-11e4-8c21-0800200c9a66");
+host.defineController("Cakewalk", "A-300 PRO", "1.1", "e504e660-2b27-11e4-8c21-0800200c9a66");
 host.defineMidiPorts(1, 1);
 host.addDeviceNameBasedDiscoveryPair(["A-PRO 1"], ["A-PRO"]);
+
 
 // CC 0 and CCs 120+ are reserved
 var LOWEST_CC = 1;
@@ -21,12 +22,14 @@ var ccValueOld = initArray(0, ((HIGHEST_CC - LOWEST_CC + 1)*16));
 
 var _down     = 22;
 var _up       = 23;
+var _ff       = 24;
 var _stop     = 25;
 var _play     = 26;
 var _loop     = 27;
 var _record   = 28;
 var _b1       = 29;
 var _b2       = 30;
+var _b3       = 3;
 var _b4       = 4;
 
 var _knob1    = 102;
@@ -71,58 +74,18 @@ function init()
     MultiBi   = host.getMidiInPort(0).createNoteInput("MultiBi - Omni", "??????");
     MultiBi1  = host.getMidiInPort(0).createNoteInput("MultiBi - Ch 1", "?0????");
     MultiBi2  = host.getMidiInPort(0).createNoteInput("MultiBi - Ch 2", "?1????");
-    /*MultiBi3  = host.getMidiInPort(0).createNoteInput("MultiBi - Ch 3", "?2????");
-     MultiBi4  = host.getMidiInPort(0).createNoteInput("MultiBi - Ch 4", "?3????");
-     MultiBi5  = host.getMidiInPort(0).createNoteInput("MultiBi - Ch 5", "?4????");
-     MultiBi6  = host.getMidiInPort(0).createNoteInput("MultiBi - Ch 6", "?5????");
-     MultiBi7  = host.getMidiInPort(0).createNoteInput("MultiBi - Ch 7", "?6????");
-     MultiBi8  = host.getMidiInPort(0).createNoteInput("MultiBi - Ch 8", "?7????");
-     MultiBi9  = host.getMidiInPort(0).createNoteInput("MultiBi - Ch 9", "?8????");
-     MultiBi10 = host.getMidiInPort(0).createNoteInput("MultiBi - Ch 10", "?9????");
-     MultiBi11 = host.getMidiInPort(0).createNoteInput("MultiBi - Ch 11", "?A????");
-     MultiBi12 = host.getMidiInPort(0).createNoteInput("MultiBi - Ch 12", "?B????");
-     MultiBi13 = host.getMidiInPort(0).createNoteInput("MultiBi - Ch 13", "?C????");
-     MultiBi14 = host.getMidiInPort(0).createNoteInput("MultiBi - Ch 14", "?D????");
-     MultiBi15 = host.getMidiInPort(0).createNoteInput("MultiBi - Ch 15", "?E????");
-     MultiBi16 = host.getMidiInPort(0).createNoteInput("MultiBi - Ch 16", "?F????");*/
+
 
     // Disable the consuming of events by the NoteInputs, so they are also available for mapping
     MultiBi.setShouldConsumeEvents(false);
     MultiBi1.setShouldConsumeEvents(false);
-    /* MultiBi2.setShouldConsumeEvents(false);
-     MultiBi3.setShouldConsumeEvents(false);
-     MultiBi4.setShouldConsumeEvents(false);
-     MultiBi5.setShouldConsumeEvents(false);
-     MultiBi6.setShouldConsumeEvents(false);
-     MultiBi7.setShouldConsumeEvents(false);
-     MultiBi8.setShouldConsumeEvents(false);
-     MultiBi9.setShouldConsumeEvents(false);
-     MultiBi10.setShouldConsumeEvents(false);
-     MultiBi11.setShouldConsumeEvents(false);
-     MultiBi12.setShouldConsumeEvents(false);
-     MultiBi13.setShouldConsumeEvents(false);
-     MultiBi14.setShouldConsumeEvents(false);
-     MultiBi15.setShouldConsumeEvents(false);
-     MultiBi16.setShouldConsumeEvents(false);*/
+
 
     // Enable Poly AT translation into Timbre for the internal BWS instruments
     MultiBi.assignPolyphonicAftertouchToExpression(0,   NoteExpression.TIMBRE_UP, 5);
     MultiBi1.assignPolyphonicAftertouchToExpression(0,   NoteExpression.TIMBRE_UP, 5);
     MultiBi2.assignPolyphonicAftertouchToExpression(1,   NoteExpression.TIMBRE_UP, 5);
-    /*MultiBi3.assignPolyphonicAftertouchToExpression(2,   NoteExpression.TIMBRE_UP, 5);
-     MultiBi4.assignPolyphonicAftertouchToExpression(3,   NoteExpression.TIMBRE_UP, 5);
-     MultiBi5.assignPolyphonicAftertouchToExpression(4,   NoteExpression.TIMBRE_UP, 5);
-     MultiBi6.assignPolyphonicAftertouchToExpression(5,   NoteExpression.TIMBRE_UP, 5);
-     MultiBi7.assignPolyphonicAftertouchToExpression(6,   NoteExpression.TIMBRE_UP, 5);
-     MultiBi8.assignPolyphonicAftertouchToExpression(7,   NoteExpression.TIMBRE_UP, 5);
-     MultiBi9.assignPolyphonicAftertouchToExpression(8,   NoteExpression.TIMBRE_UP, 5);
-     MultiBi10.assignPolyphonicAftertouchToExpression(9,  NoteExpression.TIMBRE_UP, 5);
-     MultiBi11.assignPolyphonicAftertouchToExpression(10, NoteExpression.TIMBRE_UP, 5);
-     MultiBi12.assignPolyphonicAftertouchToExpression(11, NoteExpression.TIMBRE_UP, 5);
-     MultiBi13.assignPolyphonicAftertouchToExpression(12, NoteExpression.TIMBRE_UP, 5);
-     MultiBi14.assignPolyphonicAftertouchToExpression(13, NoteExpression.TIMBRE_UP, 5);
-     MultiBi15.assignPolyphonicAftertouchToExpression(14, NoteExpression.TIMBRE_UP, 5);
-     MultiBi16.assignPolyphonicAftertouchToExpression(15, NoteExpression.TIMBRE_UP, 5);*/
+
 
 
 
@@ -195,12 +158,18 @@ function onMidi(status, data1, data2)
                 masterTrack.getVolume().setIndication(true);
                 break;
             case _b1:
-                application.nextPerspective();
+                application.toggleNoteEditor();
                 break;
             case _b2:
-                application.previousPerspective();
+                application.toggleAutomationEditor();
+                break;
+            case _b3:
+                application.toggleMixer();
                 break;
             case _b4:
+                application.toggleDevices();
+                break;
+            case _ff:
                 cursorTrack.returnToArrangement();
                 break;
 
