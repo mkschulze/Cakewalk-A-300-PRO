@@ -11,8 +11,8 @@ Features:
 3: Track selection = fwd/rwd buttons<br>
 4: Slider 9 linkted to master volume<br>
 5: Rotary knobs linked to primary device macros<br>
-6: Switch inbetween Panels (Note Editor/Autom. Editor/Mixer/Device) = B1-B4
-7: Return to arrangement for selected track = fastforward button
+6: Switch inbetween Panels (Note Editor/Autom. Editor/Mixer/Device) = B1-B4<br>
+7: Return to arrangement for selected track = fastforward button<br>
 
 ==================
 Installation:
