@@ -29,8 +29,8 @@ var _loop     = 27;
 var _record   = 28;
 var _b1       = 29;
 var _b2       = 30;
-var _b3       = 3;
-var _b4       = 4;
+var _b3       = 31;
+var _b4       = 32;
 
 var _knob1    = 102;
 var _knob2    = 103;
