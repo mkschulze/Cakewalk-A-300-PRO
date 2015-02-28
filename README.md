@@ -17,11 +17,8 @@ Features:
 ==================
 Installation:
 
-1: Copy the file C:\Users\Your Name\Documents\Bitwig Studio on Win.<br>
+1: Copy the A-300-Pro.control.js file to C:\Users\Your Name\Documents\Bitwig Studio on Win.<br>
    Mac and Linux: ~/Bitwig Studio/Controller Scripts/ <br>
-2: Open it in an Editor like Notepad. Do not use word.<br>
-3: Follow these steps here: http://www.kvraudio.com/forum/viewtopic.php?p=5693803#p5693803<br>
-   you probaply just need to change the UUID Number.<br>
-4: Load the <a href="http://filehorst.de/d/belwfazG">A-300 Bitwig.mid</a> file in your A-300 Editor and transmit it to the hardware device. Then select
-   the controller map on the A-300.<br>
-5: Start Bitwig and enjoy..<br>
+2: Load the A-300 Bitwig.mid file with your A-Pro Editor onto your device and select it on your device.<br>
+3: Start Bitwig and select the script in preferences/controler, see the included png file for help.<br>
+5: enjoy..<br>
